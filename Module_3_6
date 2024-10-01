@@ -8,11 +8,11 @@ data_structure = [
 
 
 def calculate_structure_sum(data_):
-    total_sum = 0
+    sum_num = 0
     sum_str = 0
 
     def recurs(data):
-        nonlocal total_sum, sum_str
+        nonlocal sum_num, sum_str
         if isinstance(data, list) or isinstance(data, tuple) or isinstance(data, set):
             for item in data:
                 recurs(item)
@@ -23,13 +23,13 @@ def calculate_structure_sum(data_):
                 recurs(key)
         elif isinstance(data, int) or isinstance(data_, str):
             if isinstance(data, int):
-                total_sum += data
+                sum_num += data
         elif isinstance(data, str):
             sum_str += len(data)
 
     recurs(data_)
 
-    return total_sum + sum_str
+    return sum_num + sum_str
 
 
 result = calculate_structure_sum(data_structure)
